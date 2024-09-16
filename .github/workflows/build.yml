@@ -16,7 +16,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
     steps:
       - name: Checkout masscan
         uses: actions/checkout@v3
@@ -28,5 +28,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: "masscan-artifacts-$${{ vars.RUNNER_OS }}"
+          name: "masscan-artifacts"
           path: "./"
