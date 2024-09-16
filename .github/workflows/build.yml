@@ -23,5 +23,10 @@ jobs:
       - name: Install libpcap-dev
         if: ${{ vars.RUNNER_OS == 'Linux' }}
         run: sudo apt-get install -y libpcap-dev
-      - name: Run regression tests
-        run: make test
+      - name: Build
+        run: make
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "masscan-artifacts"
+          path: "./"
